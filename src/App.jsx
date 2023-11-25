@@ -34,16 +34,19 @@ export default function App() {
 
 
 
-  const yurtaAll = useControls({
-    position: {
-      value: { x: -1.2, y: -0.82, z: -2.13 },
-      step: 0.01,
-    },
-    rotation: {
-      value: { x: -0.08, y: -3.52, z: 0.08 },
-      step: 0.01,
-    },
-  });
+  // const yurtaAll = useControls({
+  //   position: {
+  //     value: { x: -1.2, y: -0.82, z: -2.13 },
+  //     step: 0.01,
+  //     disabled: true 
+  //   },
+  //   rotation: {
+  //     value: { x: -0.08, y: -3.52, z: 0.08 },
+  //     step: 0.01,
+  //     disabled: true 
+  //   },
+
+  // });
 
   const moveToYurt = () => {
     cameraControlRef.current.enabled = true;
@@ -65,7 +68,7 @@ export default function App() {
 
   return (
     <>
-     <Perf position='top-left'/>
+     {/* <Perf position='top-left' /> */}
       <color args={["black"]} attach="background" />
       <CameraControls ref={cameraControlRef} enabled={false} />
 
@@ -74,15 +77,21 @@ export default function App() {
       <group
         ref={yurtRef}
         rotation={[
-          yurtaAll.rotation.x,
-          yurtaAll.rotation.y,
-          yurtaAll.rotation.z,
+          // yurtaAll.rotation.x,
+          // yurtaAll.rotation.y,
+          // yurtaAll.rotation.z,
+          -0.08,
+          -3.52,
+          0.08
         ]}
         scale={0.5}
         position={[
-          yurtaAll.position.x,
-          yurtaAll.position.y,
-          yurtaAll.position.z,
+          // yurtaAll.position.x,
+          // yurtaAll.position.y,
+          // yurtaAll.position.z,
+          -1.2,
+          -0.82,
+          -2.13
         ]}
       >
         <mesh ref={exterior} geometry={nodes.mergedSecond.geometry}>
@@ -112,11 +121,11 @@ export default function App() {
 
 
         <Sparkles
-          scale={[2.6, 3, 2]}
+          scale={[2, 2, 2]}
           size={5}
           speed={0.6}
-          position={[0, 3.5, 0]}
-          count={20}
+          position={[0, 4, 0]}
+          count={15}
         />
       </group>
 
